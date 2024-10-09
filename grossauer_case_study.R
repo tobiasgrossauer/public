@@ -678,7 +678,7 @@ trans_19_24[FROM.COMPETITION_ID == "L1"] %>%
 trans_19_24[FROM.COMPETITION_ID == "L1"] %>%
   .[order(-TRANSFER_FEE_MILLION)] %>%
   .[1:100] %>% 
-  .[grepl('Germany', CITIZENSHIP)]
+  .[grepl('France', CITIZENSHIP)] %>% nrow()
 
 trans_19_24[TRANSFER_TYPE_START %in% c("paid transfer"), .(TRANSFER_FEE_AVG = mean(TRANSFER_FEE_MILLION, na.rm = TRUE)), by = c("POS_CLASS")]
 
